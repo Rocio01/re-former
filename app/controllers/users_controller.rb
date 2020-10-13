@@ -7,7 +7,11 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @user.update(user_params)
 
-        redirect_to update_user_path
+        redirect_to user_edit_path
+    end
+
+    def edit
+        @user = User.find(params[:id])
     end
 
     def create 
