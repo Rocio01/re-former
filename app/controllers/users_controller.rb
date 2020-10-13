@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+    def index
+        @users = User.all
+    end
+
     def new
        @user = User.new 
     end
@@ -7,7 +11,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @user.update(user_params)
 
-        redirect_to user_edit_path
+        redirect_to edit_user_path(@user)
     end
 
     def edit

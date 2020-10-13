@@ -24,6 +24,11 @@
 <% end %>
 
 <%= form_for(@user, url: {action: "create"}, html:{multipart: true}) do |f| %>
+  <ul>
+    <% @user.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+  </ul>
   <%= f.label :username, 'Name' %>
   <%= f.text_field :username, value: 'Jhon Doe'%> <br><br>
   <%= f.label :email %>
