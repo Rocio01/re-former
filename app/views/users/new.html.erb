@@ -11,6 +11,7 @@
 </form> 
 <% end %> 
 
+<% if false%>
 <%= form_tag("/users", method: "post") do%>
   <%= label_tag(:username, "Username:") %>
   <%= text_field_tag(:username)%><br><br>
@@ -20,3 +21,15 @@
   <%= password_field_tag(:password)%><br><br>
   <%= submit_tag("Save")%>
 <% end %>
+<% end %>
+
+<%= form_for(@user, url: {action: "create"}, html:{multipart: true}) do |f| %>
+  <%= f.label :username, 'Name' %>
+  <%= f.text_field :username, value: 'Jhon Doe'%> <br><br>
+  <%= f.label :email %>
+  <%= f.email_field :email,  placeholder: 'example@email.com' %> <br><br>
+  <%= f.label :password %>
+  <%= f.password_field :password %> <br><br>
+  <%= f.submit %>
+<% end%>
+
