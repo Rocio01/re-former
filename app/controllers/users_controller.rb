@@ -3,6 +3,13 @@ class UsersController < ApplicationController
        @user = User.new 
     end
 
+    def update
+        @user = User.find(params[:id])
+        @user.update(user_params)
+
+        redirect_to update_user_path
+    end
+
     def create 
         # @user = User.new(username: params[:username], email: params[:email], password: params[:password])
         @user = User.new(user_params)
